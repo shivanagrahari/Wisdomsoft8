@@ -46,7 +46,7 @@ const approach = [
 function AboutUs() {
   useEffect(() => {
     const previousTitle = document.title
-    document.title = 'About Us | Wisdomsoft'
+    document.title = 'About Us | Kingdomsoft'
 
     return () => {
       document.title = previousTitle
@@ -58,10 +58,10 @@ function AboutUs() {
       <section className="about-hero">
         <div className="about-hero-rings" aria-hidden="true" />
         <div className="about-hero-content">
-          <span className="about-hero-label">ABOUT WISDOMSOFT</span>
+          <span className="about-hero-label">ABOUT KINGDOMSOFT</span>
           <h1>More Than Code. A Thoughtful Technology Company.</h1>
           <p>
-            Wisdomsoft was created with a simple belief — software should solve
+            Kingdomsoft was created with a simple belief — software should solve
             real problems, not create new ones.
           </p>
         </div>
@@ -73,7 +73,7 @@ function AboutUs() {
             <p className="about-eyebrow">PURPOSEFUL TECHNOLOGY</p>
             <h2>Our Story</h2>
             <p>
-              Wisdomsoft started with a simple goal: build meaningful digital
+              Kingdomsoft started with a simple goal: build meaningful digital
               systems that make everyday work clearer, easier, and more
               connected. We approach each challenge with structure and a focus
               on the people who will use the product.
@@ -123,7 +123,7 @@ function AboutUs() {
         <div className="about-container">
           <h2>Let’s Build Something Great Together</h2>
           <p>
-            Have an idea for a website, ERP, or SaaS product? Let Wisdomsoft
+            Have an idea for a website, ERP, or SaaS product? Let Kingdomsoft
             bring it to life.
           </p>
           <a className="about-cta-button" href="/contact">
@@ -137,7 +137,7 @@ function AboutUs() {
           <h2>Our Culture</h2>
           <p>
             We operate with a mindset of ownership, accountability, and respect
-            for craftsmanship. Every engineer at Wisdomsoft treats projects as
+            for craftsmanship. Every engineer at Kingdomsoft treats projects as
             long-term products, not temporary assignments.
           </p>
           <p>
@@ -167,7 +167,7 @@ function AboutUs() {
 
       <section className="about-approach about-section">
         <div className="about-container">
-          <p className="about-eyebrow">WORKING WITH WISDOMSOFT</p>
+          <p className="about-eyebrow">WORKING WITH KINGDOMSOFT</p>
           <h2>Good Work Starts With a Clear Partnership</h2>
           <p className="about-approach-intro">
             From the first conversation through launch and beyond, we keep the

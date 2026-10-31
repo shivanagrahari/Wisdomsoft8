@@ -16,14 +16,16 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+}
+
 html {
-  min-width: 320px;
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
 
 body {
-  min-width: 320px;
   min-height: 100vh;
   margin: 0;
 }

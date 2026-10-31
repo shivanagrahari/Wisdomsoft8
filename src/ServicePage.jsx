@@ -516,7 +516,7 @@ export default function ServicePage({ pathname }) {
     }
 
     const previousTitle = document.title
-    document.title = `${service.title} | Wisdomsoft`
+    document.title = `${service.title} | Kingdomsoft`
 
     return () => {
       document.title = previousTitle
@@ -532,10 +532,10 @@ export default function ServicePage({ pathname }) {
       <section className="service-hero">
         <div className="service-hero-inner">
           <div className="service-hero-copy">
-            <p className="service-eyebrow service-eyebrow--light">WISDOMSOFT SERVICES</p>
+            <p className="service-eyebrow service-eyebrow--light">KINGDOMSOFT SERVICES</p>
             <h1>{service.title}</h1>
             <p className="service-hero-intro">{service.intro}</p>
-            <a className="service-button" href="/#contact">
+            <a className="service-button" href="/contact">
               Discuss your requirement <ArrowIcon />
             </a>
           </div>
@@ -648,7 +648,7 @@ export default function ServicePage({ pathname }) {
       <section className="service-cta">
         <div className="service-content-shell service-cta-inner">
           <h2>{service.cta}</h2>
-          <a className="service-button service-button--dark" href="/#contact">
+          <a className="service-button service-button--dark" href="/contact">
             Start a conversation <ArrowIcon />
           </a>
         </div>

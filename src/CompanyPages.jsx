@@ -99,7 +99,7 @@ function SendIcon() {
 function PageTitle({ title }) {
   useEffect(() => {
     const previousTitle = document.title
-    document.title = `${title} | Wisdomsoft`
+    document.title = `${title} | Kingdomsoft`
 
     return () => {
       document.title = previousTitle
@@ -199,7 +199,7 @@ export function CareersPage() {
   const handleApplicationSubmit = (event) => {
     event.preventDefault()
     setApplicationStatus(
-      'Online applications are not connected yet. Please email your CV and application details to info@blackcode.in.',
+      'Online applications are not connected yet. Please email your CV and application details to info@Kingdomsoft.in.',
     )
   }
 
@@ -208,8 +208,8 @@ export function CareersPage() {
       <PageTitle title="Careers" />
       <section className="careers-hero">
         <div className="company-content-shell careers-hero-inner">
-          <p className="company-eyebrow company-eyebrow--light">CAREERS AT WISDOMSOFT</p>
-          <h1>Careers at Wisdomsoft</h1>
+          <p className="company-eyebrow company-eyebrow--light">CAREERS AT KINGDOMSOFT</p>
+          <h1>Careers at Kingdomsoft</h1>
           <p>
             We are always looking for talented individuals to join our team and
             grow together.
@@ -311,7 +311,7 @@ export function CareersPage() {
             <p className="company-form-note">
               This form does not upload applications to a server. After completing
               it, email your CV and details to{' '}
-              <a href="mailto:info@blackcode.in">info@blackcode.in</a>.
+              <a href="mailto:info@Kingdomsoft.in">info@Kingdomsoft.in</a>.
             </p>
             <button className="company-button company-button--dark" type="submit">
               Submit Application <ArrowIcon />
@@ -338,30 +338,30 @@ function ContactDetails() {
       <div className="contact-detail-list">
         <a
           className="contact-detail"
-          href="https://maps.google.com/?q=A-70+Second+Floor+Sector-2+Noida+Uttar+Pradesh+201301"
+          href="https://maps.google.com/?q=4th+Floor+Nandanvan+Park+Karvenagar+Pune"
           target="_blank"
           rel="noreferrer"
         >
           <span className="contact-detail-icon"><PinIcon /></span>
           <span>
             <small>VISIT OUR OFFICE</small>
-            <strong>A-70, Second Floor, Sector 2,<br />Noida, Uttar Pradesh 201301</strong>
+            <strong>4th Floor, Nandanvan Park,<br />Karvenagar, Pune</strong>
           </span>
           <ArrowIcon />
         </a>
-        <a className="contact-detail" href="tel:+917965315313">
+        <a className="contact-detail" href="tel:9370778309">
           <span className="contact-detail-icon"><PhoneIcon /></span>
           <span>
             <small>CALL OUR TEAM</small>
-            <strong>+91 79653 15313</strong>
+            <strong>9370778309</strong>
           </span>
           <ArrowIcon />
         </a>
-        <a className="contact-detail" href="mailto:info@blackcode.in">
+        <a className="contact-detail" href="mailto:info@Kingdomsoft.in">
           <span className="contact-detail-icon"><MailIcon /></span>
           <span>
             <small>EMAIL US</small>
-            <strong>info@blackcode.in</strong>
+            <strong>info@Kingdomsoft.in</strong>
           </span>
           <ArrowIcon />
         </a>
@@ -394,7 +394,7 @@ export function ContactPage() {
   const handleInquirySubmit = (event) => {
     event.preventDefault()
     setInquiryStatus(
-      'This site does not send inquiries to a server yet. Please email info@blackcode.in or call +91 79653 15313.',
+      'This site does not send inquiries to a server yet. Please email info@Kingdomsoft.in or call 9370778309.',
     )
   }
 
@@ -526,11 +526,11 @@ export function ContactPage() {
           <div className="contact-map-heading">
             <div>
               <p className="company-eyebrow">FIND US</p>
-              <h2>Visit our Noida office</h2>
+              <h2>Visit our Pune office</h2>
             </div>
             <a
               className="contact-map-link"
-              href="https://maps.google.com/?q=A-70+Second+Floor+Sector-2+Noida+Uttar+Pradesh+201301"
+              href="https://maps.google.com/?q=4th+Floor+Nandanvan+Park+Karvenagar+Pune"
               target="_blank"
               rel="noreferrer"
             >
@@ -539,8 +539,8 @@ export function ContactPage() {
           </div>
           <iframe
             className="contact-map-frame"
-            title="Map to Wisdomsoft's Noida office"
-            src="https://maps.google.com/maps?q=A-70%20Second%20Floor%20Sector-2%20Noida%20Uttar%20Pradesh%20201301&output=embed"
+            title="Map to Kingdomsoft's Pune office"
+            src="https://maps.google.com/maps?q=4th%20Floor%20Nandanvan%20Park%20Karvenagar%20Pune&output=embed"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />

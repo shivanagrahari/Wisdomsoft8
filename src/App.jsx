@@ -90,7 +90,6 @@ const services = [
 const companyLinks = [
   ['Home', '/'],
   ['About Us', '/about'],
-  ['Suite', 'https://app.blackcode.in/'],
   ['Careers', '/careers'],
   ['Contact', '/contact'],
 ]
@@ -236,17 +235,13 @@ function Brand({ footer = false }) {
     <a
       className={`brand${footer ? ' brand--footer' : ''}`}
       href="/"
-      aria-label="Wisdomsoft home"
+      aria-label="Kingdomsoft home"
     >
-      <span className="brand-mark" aria-hidden="true">
-        B
-      </span>
-      <span className="brand-copy">
-        <span className="brand-name">
-          Wisdom<span>soft</span>
-        </span>
-        <span className="brand-tagline">Built Around Your Vision</span>
-      </span>
+      <img
+        className="brand-logo"
+        src="/logo%20kingdomsoft%20new.png"
+        alt="Kingdomsoft"
+      />
     </a>
   )
 }
@@ -261,7 +256,15 @@ function Navbar({
   const [servicesOpen, setServicesOpen] = useState(false)
   const servicesItemRef = useRef(null)
 
-  const closeMenu = () => setMenuOpen(false)
+  const closeMenu = () => {
+    setMenuOpen(false)
+    setServicesOpen(false)
+  }
+
+  const toggleMenu = () => {
+    setMenuOpen((open) => !open)
+    setServicesOpen(false)
+  }
 
   useEffect(() => {
     if (!servicesOpen) {
@@ -274,9 +277,24 @@ function Navbar({
       }
     }
 
-    document.addEventListener('pointerdown', closeOnOutsidePointerDown)
-    return () => document.removeEventListener('pointerdown', closeOnOutsidePointerDown)
+    document.addEventListener('click', closeOnOutsidePointerDown)
+    return () => document.removeEventListener('click', closeOnOutsidePointerDown)
   }, [servicesOpen])
+
+  useEffect(() => {
+    if (!menuOpen && !servicesOpen) {
+      return undefined
+    }
+
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeMenu()
+      }
+    }
+
+    document.addEventListener('keydown', closeOnEscape)
+    return () => document.removeEventListener('keydown', closeOnEscape)
+  }, [menuOpen, servicesOpen])
 
   return (
     <header className="site-header">
@@ -288,14 +306,14 @@ function Navbar({
           aria-expanded={menuOpen}
           aria-controls="primary-navigation"
           aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          onClick={() => setMenuOpen((open) => !open)}
+          onClick={toggleMenu}
         >
           <span />
           <span />
           <span />
         </button>
         <ul
-          className={`nav-links${menuOpen ? ' nav-links--open' : ''}`}
+          className={`nav-links${menuOpen ? ' nav-links--open' : ''}${servicesOpen ? ' nav-links--services-open' : ''}`}
           id="primary-navigation"
         >
           <li>
@@ -310,7 +328,7 @@ function Navbar({
           </li>
           <li
             ref={servicesItemRef}
-            className="nav-item nav-item--services"
+            className={`nav-item nav-item--services${servicesOpen ? ' nav-item--services-open' : ''}`}
             onPointerEnter={(event) => {
               if (event.pointerType === 'mouse') {
                 setServicesOpen(true)
@@ -323,7 +341,13 @@ function Navbar({
               aria-haspopup="menu"
               aria-expanded={servicesOpen}
               aria-controls="services-dropdown"
-              onClick={() => setServicesOpen((open) => !open)}
+              onClick={(event) => {
+                if (event.nativeEvent.pointerType === 'mouse' && servicesOpen) {
+                  return
+                }
+
+                setServicesOpen((open) => !open)
+              }}
             >
               Services <span className="services-chevron" aria-hidden="true">⌄</span>
             </button>
@@ -352,11 +376,6 @@ function Navbar({
             )}
           </li>
           <li>
-            <a className="nav-link" href="https://app.blackcode.in/" onClick={closeMenu}>
-              Suite
-            </a>
-          </li>
-          <li>
             <a className={`nav-link${careersPage ? ' nav-link--active' : ''}`} href="/careers" onClick={closeMenu}>
               Careers
             </a>
@@ -380,7 +399,7 @@ function Hero() {
           <p className="hero-kicker">Build what your business needs next</p>
           <h1>From your first website to the systems behind your growth.</h1>
           <p className="hero-description">
-            Wisdomsoft designs, develops and supports digital products that help
+            Kingdomsoft designs, develops and supports digital products that help
             businesses sell, operate and scale with clarity.
           </p>
           <div className="hero-actions">
@@ -403,7 +422,7 @@ function Hero() {
             ))}
           </div>
         </div>
-        <div className="hero-visual" aria-label="Wisdomsoft digital products">
+        <div className="hero-visual" aria-label="Kingdomsoft digital products">
           <div className="hero-visual-panels" aria-hidden="true">
             <span className="hero-backdrop-card hero-backdrop-card--one" />
             <span className="hero-backdrop-card hero-backdrop-card--two" />
@@ -473,13 +492,13 @@ function Services() {
 function Stats() {
   const stats = [
     ['10', 'Specialised Services'],
-    ['01', 'Connected Wisdomsoft Suite'],
+    ['01', 'Connected Business Systems'],
     ['100%', 'Custom-Built Solutions'],
     ['∞', 'Room For Your Next Stage'],
   ]
 
   return (
-    <section className="stats-section" aria-label="Wisdomsoft at a glance">
+    <section className="stats-section" aria-label="Kingdomsoft at a glance">
       <div className="stats-grid page-shell">
         {stats.map(([number, label]) => (
           <div className="stat-item" key={label}>
@@ -487,37 +506,6 @@ function Stats() {
             <span>{label}</span>
           </div>
         ))}
-      </div>
-    </section>
-  )
-}
-
-function Suite() {
-  return (
-    <section className="suite-section section-pad">
-      <div className="suite-inner page-shell">
-        <div className="suite-copy">
-          <p className="eyebrow">WISDOMSOFT SUITE</p>
-          <h2>One platform. The modules your team needs today.</h2>
-          <p>
-            CRM, ERP, HRMS, Inventory, Billing, Payroll, Projects, Help Desk and
-            AI—activated as your business grows.
-          </p>
-          <a className="button button--dark" href="https://app.blackcode.in/">
-            Explore Suite plans <ArrowIcon />
-          </a>
-        </div>
-        <div className="suite-visual" aria-label="Connected business suite">
-          <div className="suite-card">
-            <div className="suite-card-icon" aria-hidden="true">
-              <span className="suite-card-icon-inner" />
-            </div>
-            <div className="suite-card-copy">
-              <h3>Start with CRM</h3>
-              <p>Build a connected business suite, one useful module at a time.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -565,13 +553,13 @@ function Contact() {
             Tell us a little about what you’re building. We’ll help you find the
             right next step.
           </p>
-          <a className="contact-email" href="mailto:info@blackcode.in">
-            info@blackcode.in <ArrowIcon />
+          <a className="contact-email" href="mailto:info@Kingdomsoft.in">
+            info@Kingdomsoft.in <ArrowIcon />
           </a>
         </div>
         <form
           className="contact-form"
-          action="mailto:info@blackcode.in"
+          action="mailto:info@Kingdomsoft.in"
           method="post"
           encType="text/plain"
         >
@@ -634,14 +622,11 @@ function Footer({ aboutPage = false, servicePage = false }) {
         <div className="footer-about">
           <Brand footer />
           <p>
-            Wisdomsoft delivers web applications, e-commerce platforms, mobile
+            Kingdomsoft delivers web applications, e-commerce platforms, mobile
             apps and business software for modern teams.
           </p>
-          <div className="social-links" aria-label="Wisdomsoft social media">
-            <a href="https://www.facebook.com" aria-label="Wisdomsoft on Facebook">f</a>
-            <a href="https://x.com" aria-label="Wisdomsoft on X">𝕏</a>
-            <a href="https://www.linkedin.com/in/blackcode-t-97a8103aa" aria-label="Wisdomsoft on LinkedIn">in</a>
-            <a href="https://www.instagram.com/blackcode_technology" aria-label="Wisdomsoft on Instagram">◎</a>
+          <div className="social-links" aria-label="Kingdomsoft social media">
+            <a href="https://www.linkedin.com/in/blackcode-t-97a8103aa" aria-label="Kingdomsoft on LinkedIn">in</a>
           </div>
         </div>
         <nav className="footer-links" aria-label="Company links">
@@ -662,13 +647,13 @@ function Footer({ aboutPage = false, servicePage = false }) {
         </nav>
         <div className="footer-contact">
           <h2>Contact Us</h2>
-          <p><span aria-hidden="true">⌖</span>A-70 Second Floor, Sector-2<br />Noida, Gautam Buddha Nagar,<br />U.P. 201301.</p>
-          <a href="tel:+917965315313"><span aria-hidden="true">⌕</span>+91 7965315313</a>
-          <a href="mailto:info@blackcode.in"><span aria-hidden="true">✉</span>info@blackcode.in</a>
+          <p><span aria-hidden="true">⌖</span>4th Floor, Nandanvan Park,<br />Karvenagar, Pune</p>
+          <a href="tel:9370778309"><span aria-hidden="true">⌕</span>9370778309</a>
+          <a href="mailto:info@Kingdomsoft.in"><span aria-hidden="true">✉</span>info@Kingdomsoft.in</a>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© 2026 Wisdomsoft. All rights reserved.</p>
+        <p>© 2026 Kingdomsoft. All rights reserved.</p>
       </div>
     </footer>
   )
@@ -704,7 +689,6 @@ function App() {
               <Hero />
               <Services />
               <Stats />
-              <Suite />
               <Process />
               <Contact />
             </>
@@ -714,8 +698,8 @@ function App() {
       <Footer aboutPage={aboutPage} servicePage={Boolean(servicePage)} />
       <a
         className="whatsapp-link"
-        href="https://wa.me/918527952043?text=Hello%20Wisdomsoft%2C%20I%20would%20like%20to%20discuss%20my%20project."
-        aria-label="Chat with Wisdomsoft on WhatsApp"
+        href="https://wa.me/919370778309?text=Hello%20Kingdomsoft%2C%20I%20would%20like%20to%20discuss%20my%20project."
+        aria-label="Chat with Kingdomsoft on WhatsApp"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.7Z" />
