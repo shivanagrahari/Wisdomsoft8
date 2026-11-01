@@ -430,7 +430,7 @@ function Hero() {
             <span className="hero-backdrop-card hero-backdrop-card--four" />
           </div>
           <div className="hero-feature-card">
-            <p className="hero-feature-eyebrow">WISDOMSOFT / BUILD</p>
+            <p className="hero-feature-eyebrow">KINGDOMSOFT / BUILD</p>
             <strong>
               Websites
               <br />
@@ -511,6 +511,40 @@ function Stats() {
   )
 }
 
+function Suite() {
+  return (
+    <section className="suite-section">
+      <div className="suite-inner page-shell">
+        <div className="suite-copy">
+          <p className="eyebrow">KINGDOMSOFT SUITE</p>
+          <h2>One platform. The modules your team needs today.</h2>
+          <p>
+            CRM, ERP, HRMS, Inventory, Billing, Payroll, Projects, Help Desk and
+            AI—activated as your business grows.
+          </p>
+          <a className="suite-plan-link" href="#what-we-do">
+            Explore Suite plans <ArrowIcon />
+          </a>
+        </div>
+        <article className="suite-card">
+          <span className="suite-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z" />
+              <path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5" />
+            </svg>
+          </span>
+          <div className="suite-card-copy">
+            <h3>Start with CRM</h3>
+            <p>
+              Build a connected business suite, one useful module at a time.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  )
+}
+
 function Process() {
   const steps = [
     ['01', 'Discover', 'Align on goals, users and the right first release.'],
@@ -529,7 +563,24 @@ function Process() {
           {steps.map(([number, title, description]) => (
             <article className="process-card" key={number}>
               <div className="process-card-top">
-                <span className={`process-icon process-icon--${number}`} aria-hidden="true" />
+                <span className="process-icon" aria-hidden="true">
+                  {number === '01' ? (
+                    <svg viewBox="0 0 24 24">
+                      <path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3Z" />
+                      <path d="m19 14 1 2.5 2.5 1-2.5 1L19 21l-1-2.5-2.5-1 2.5-1L19 14Z" />
+                    </svg>
+                  ) : number === '02' ? (
+                    <svg viewBox="0 0 24 24">
+                      <path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z" />
+                      <path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  )}
+                </span>
                 <span className="process-number">{number}</span>
               </div>
               <h3>{title}</h3>
@@ -689,6 +740,7 @@ function App() {
               <Hero />
               <Services />
               <Stats />
+              <Suite />
               <Process />
               <Contact />
             </>
@@ -696,16 +748,6 @@ function App() {
         </main>
       )}
       <Footer aboutPage={aboutPage} servicePage={Boolean(servicePage)} />
-      <a
-        className="whatsapp-link"
-        href="https://wa.me/919370778309?text=Hello%20Kingdomsoft%2C%20I%20would%20like%20to%20discuss%20my%20project."
-        aria-label="Chat with Kingdomsoft on WhatsApp"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.7Z" />
-          <path d="M9 8.5c.2-.4.4-.4.7-.4h.4c.2 0 .3.1.4.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.5 2 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5 0 .4-.2 1-.6 1.3-.5.4-1.1.6-1.8.5-1-.1-2.3-.7-3.7-1.9-1.2-1-2.1-2.4-2.3-3.4-.2-.9 0-1.6.4-2.2.3-.3.5-.5.7-.5Z" />
-        </svg>
-      </a>
     </>
   )
 }

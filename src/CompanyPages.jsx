@@ -371,16 +371,13 @@ function ContactDetails() {
         <span>
           <small>OFFICE HOURS</small>
           <strong>Mon–Fri, 9:00 AM–6:00 PM</strong>
-          <span>Saturday, 10:00 AM–3:00 PM · Sunday closed</span>
+          <span>Saturday &amp; Sunday: Closed</span>
         </span>
       </div>
       <div className="contact-socials">
         <p>Connect with us</p>
         <div>
           <a href="https://www.linkedin.com/in/black-code-97a8103aa" aria-label="LinkedIn">in</a>
-          <a href="https://www.instagram.com/blackcode_technology" aria-label="Instagram">◎</a>
-          <a href="https://www.facebook.com/" aria-label="Facebook">f</a>
-          <a href="https://x.com/" aria-label="X">𝕏</a>
         </div>
       </div>
     </aside>
