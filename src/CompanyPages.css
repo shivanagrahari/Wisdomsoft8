@@ -8,6 +8,10 @@
   margin-inline: auto;
 }
 
+.careers-page .company-content-shell {
+  width: min(1220px, calc(100% - 64px));
+}
+
 .company-eyebrow {
   margin: 0 0 10px;
   color: #178c78;
@@ -88,25 +92,30 @@
   position: relative;
   z-index: 1;
   padding-block: 62px;
+  text-align: center;
 }
 
 .careers-hero h1 {
-  max-width: 680px;
   margin: 0;
   color: #fff;
   font-family: var(--heading);
-  font-size: clamp(42px, 6vw, 68px);
+  font-size: clamp(42px, 5vw, 60px);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 1.04;
+  white-space: nowrap;
 }
 
 .careers-hero-inner > p:not(.company-eyebrow) {
   max-width: 650px;
-  margin: 18px 0 22px;
+  margin: 18px auto 22px;
   color: #d3e6df;
   font-size: 16px;
   line-height: 1.75;
+}
+
+.careers-hero-inner > .company-eyebrow {
+  margin-bottom: 12px;
 }
 
 .careers-hero-orbit {
@@ -135,6 +144,7 @@
 
 .career-section-heading {
   margin-bottom: 22px;
+  text-align: center;
 }
 
 .career-section-heading h2,
@@ -159,7 +169,9 @@
 }
 
 .career-benefit-card {
-  min-height: 180px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
   border: 1px solid #dfeae5;
   border-radius: 15px;
   padding: 20px;
@@ -189,6 +201,7 @@
 }
 
 .career-benefit-card h3 {
+  min-height: 2.7em;
   margin: 15px 0 7px;
   color: #24453e;
   font-size: 16px;
@@ -874,8 +887,20 @@
     width: min(100% - 64px, 760px);
   }
 
+  .careers-page .company-content-shell {
+    width: min(100% - 64px, 760px);
+  }
+
+  .careers-hero h1 {
+    font-size: clamp(40px, 6.5vw, 54px);
+  }
+
   .career-benefit-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .career-benefit-card {
+    min-height: 180px;
   }
 
   .contact-content-grid {
@@ -897,6 +922,10 @@
     width: min(100% - 40px, 560px);
   }
 
+  .careers-page .company-content-shell {
+    width: min(100% - 40px, 560px);
+  }
+
   .careers-hero {
     min-height: 325px;
   }
@@ -907,11 +936,16 @@
 
   .careers-hero h1 {
     font-size: clamp(39px, 11vw, 52px);
+    white-space: normal;
   }
 
   .careers-hero-inner > p:not(.company-eyebrow) {
     max-width: 460px;
     font-size: 14px;
+  }
+
+  .career-benefit-card h3 {
+    min-height: 0;
   }
 
   .careers-hero-orbit {

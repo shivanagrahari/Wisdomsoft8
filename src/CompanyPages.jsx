@@ -426,7 +426,7 @@ export function ContactPage() {
             <span className="contact-orbit-dot contact-orbit-dot--one" />
             <span className="contact-orbit-dot contact-orbit-dot--two" />
             <span className="contact-orbit-dot contact-orbit-dot--three" />
-            <span className="contact-orbit-center">BC</span>
+            <span className="contact-orbit-center">KS</span>
           </div>
         </div>
       </section>
